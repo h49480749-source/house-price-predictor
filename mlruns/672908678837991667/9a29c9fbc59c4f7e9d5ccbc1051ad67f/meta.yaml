@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/672908678837991667/9a29c9fbc59c4f7e9d5ccbc1051ad67f/artifacts
+end_time: 1767742201026
+entry_point_name: ''
+experiment_id: '672908678837991667'
+lifecycle_stage: active
+run_id: 9a29c9fbc59c4f7e9d5ccbc1051ad67f
+run_name: RandomForest
+run_uuid: 9a29c9fbc59c4f7e9d5ccbc1051ad67f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1767742188790
+status: 3
+tags: []
+user_id: hamza
