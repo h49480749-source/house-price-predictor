@@ -7,7 +7,7 @@ on:
     branches:
       - main
 jobs:
-  Workflow:
+  end-to-end-Workflow:
     runs-on: ubuntu-latest
     steps:
 
@@ -58,6 +58,23 @@ jobs:
             --data data/processed/featured_house_data.csv \
             --models-dir models  \
             --mlflow-tracking-uri http://localhost:5555
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: h229/fastapi:{{ github.sha }}
+          context: "."
+          file: "Dockerfile"
 
       - name : Cleaning up MLflow server
         run: |
